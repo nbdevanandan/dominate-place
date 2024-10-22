@@ -2,6 +2,14 @@ import cv2
 import json
 import argparse
 
+# this python script will accept arguments because it should know which 
+# 5 pixels to make into a json file; for that the bash script should pass
+# the current x, y coords to this fie
+parser = argparse.ArgumentParser(description="Get the current coordinates")
+parser.add_argument('x', type=int, help='X coords')
+parser.add_argument('y', type=int, help='Y coords')
+args = parser.parse_args()
+
 # the maximum no of pixels they accept in one go
 max_size = 5
 
@@ -9,13 +17,10 @@ max_size = 5
 # within the original canvas' dimensions; which for us is 180, 50
 image = cv2.imread('canvas.png')
 
-# shape -- (height, width, 3) of image
-# 3 to indicate R, G, B
-shape = image.shape
+def read_data(args.x, args.y):
+    #image_rgb = cv2.cvtColor(image_bgr, cv2.COLOR_BGR2RGB)
+    return (x, y, rgb)
 
-####
-####
-image_rgb = cv2.cvtColor(image_bgr, cv2.COLOR_BGR2RGB)
 
 # function to create data based on dynamic input
 def generate_data(x_values, y_values, rgb_values):
