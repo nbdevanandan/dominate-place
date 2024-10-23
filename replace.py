@@ -17,7 +17,7 @@ max_size = 5
 # within the original canvas' dimensions; which for us is 180, 50
 image = cv2.imread('canvas.png')
 
-def read_data(args.x, args.y):
+def read_data(x = args.x, args.y):
     #image_rgb = cv2.cvtColor(image_bgr, cv2.COLOR_BGR2RGB)
     return (x, y, rgb)
 
