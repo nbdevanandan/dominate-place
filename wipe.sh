@@ -5,7 +5,7 @@ token=$(cat token.txt)
 url="https://${token}@github.com/nbdevanandan/dominate-place.git"
 
 echo "$token" | gh auth login --with-token
-git remote set-url origin "$url"
+#git remote set-url origin "$url"
 
 for y in {0..9}; do
   for x in {0..19..5}; do
