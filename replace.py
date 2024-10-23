@@ -1,5 +1,6 @@
 import cv2
 import json
+import os
 import argparse
 
 # this python script will accept arguments because it should know which 
@@ -15,12 +16,20 @@ max_size = 5
 
 # canvas.png can be replaced with any image of your liking as long as it's
 # within the original canvas' dimensions; which for us is 180, 50
-image = cv2.imread('canvas.png')
+image_bgr = cv2.imread('canvas.png')
+image = cv2.cvtColor(image_bgr, cv2.COLOR_BGR2RGB)
 
-def read_data(x = args.x, args.y):
-    #image_rgb = cv2.cvtColor(image_bgr, cv2.COLOR_BGR2RGB)
-    return (x, y, rgb)
+def read_data(x=args.x, y=args.y):
+    x_values = []
+    y_values = [y] * max_size
+    rgb_values = []
+    for xi in range(x,x+max_size+1):
+        x_values.append(xi)
+        rgb_values.append(image[y,xi].tolist())
 
+    return (x_values, y_values, rgb_values)
+
+x_values, y_values, rgb_values = read_data()
 
 # function to create data based on dynamic input
 def generate_data(x_values, y_values, rgb_values):
@@ -33,8 +42,11 @@ def generate_data(x_values, y_values, rgb_values):
         })
     return data
 
-# the json file we need to edit:
-json_file = ''
+data = generate_data(x_values, y_values, rgb_values)
+
+# json file to edit
+current_directory = os.getcwd()
+json_file = os.path.join(current_directory, 'amPlace_contribution', 'pixel_update.json')
 
 # Write the data to a JSON file
 with open(json_file, 'w') as json_file:
