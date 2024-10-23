@@ -9,8 +9,9 @@ git remote set-url origin "$url"
 
 for y in {0..9}; do
   for x in {0..19..5}; do
-    python3 replace.py $x $y
+    python3 ~/dominate-place/replace.py $x $y
     
+    cd ..
     cd amPlace_contribution
     
     git add .
@@ -19,6 +20,7 @@ for y in {0..9}; do
     gh pr create --base main --head main --title "If this works" --body "testing testing"
     
     cd ..
+    cd dominate-place
     
     sleep 5
   done

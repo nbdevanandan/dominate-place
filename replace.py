@@ -45,8 +45,8 @@ def generate_data(x_values, y_values, rgb_values):
 data = generate_data(x_values, y_values, rgb_values)
 
 # json file to edit
-current_directory = os.getcwd()
-json_file = os.path.join(current_directory, 'amPlace_contribution', 'pixel_update.json')
+home_directory = os.path.expanduser("~")
+json_file = os.path.join(home_directory, 'amPlace_contribution', 'pixel_update.json')
 
 # Write the data to a JSON file
 with open(json_file, 'w') as json_file:
