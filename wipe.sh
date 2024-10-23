@@ -2,7 +2,7 @@
 
 msg="testing ig"
 token=$(cat token.txt)
-url="https://${token}@github.com/nbdevanandan/amPlace_contribution.git
+url="https://${token}@github.com/nbdevanandan/amPlace_contribution.git"
 
 echo "$token" | gh auth login --with-token
 #git remote set-url origin "$url"
