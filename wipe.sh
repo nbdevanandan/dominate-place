@@ -2,7 +2,6 @@
 
 msg="testing ig"
 token=$(cat token.txt)
-url="https://${token}@github.com/nbdevanandan/amPlace_contribution.git"
 
 echo "$token" | gh auth login --with-token
 #git remote set-url origin "$url"
@@ -14,18 +13,17 @@ for y in {0..9}; do
     
     cd ..
     cd amPlace_contribution
-    pwd
    
     git add .
     git commit -m "$msg"
-    git push $url main
+    git push
     
     gh pr create --title "If this works" --body "testing testing"
     
     cd ..
     cd dominate-place
     
-    sleep 5
+    sleep 1
   done
 done
 
