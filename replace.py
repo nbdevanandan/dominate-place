@@ -19,6 +19,10 @@ max_size = 5
 image_bgr = cv2.imread('canvas.png')
 image = cv2.cvtColor(image_bgr, cv2.COLOR_BGR2RGB)
 
+# Function to convert RGB to Hex
+def rgb_to_hex(rgb):
+    return "#{:02x}{:02x}{:02x}".format(rgb[0], rgb[1], rgb[2])
+
 def read_data(x=args.x, y=args.y):
     x_values = []
     y_values = [y] * max_size
@@ -38,7 +42,7 @@ def generate_data(x_values, y_values, rgb_values):
         data.append({
             "x": str(x),
             "y": str(y),
-            "rgb": rgb
+            "rgb": rgb_to_hex(rgb)
         })
     return data
 
