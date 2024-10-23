@@ -14,13 +14,13 @@ for y in {0..9}; do
     
     cd ..
     cd amPlace_contribution
-    ls
+    pwd
    
     git add .
     git commit -m "$msg"
     git push $url main
     
-    gh pr create --base main --head main --title "If this works" --body "testing testing"
+    gh pr create --title "If this works" --body "testing testing"
     
     cd ..
     cd dominate-place
