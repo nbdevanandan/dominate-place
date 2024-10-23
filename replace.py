@@ -51,4 +51,6 @@ json_file = os.path.join(home_directory, 'amPlace_contribution', 'pixel_update.j
 # Write the data to a JSON file
 with open(json_file, 'w') as json_file:
     json.dump(data, json_file, indent=2)
+    
+print("suces")
 

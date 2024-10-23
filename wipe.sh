@@ -9,6 +9,7 @@ git remote set-url origin "$url"
 
 for y in {0..9}; do
   for x in {0..19..5}; do
+  
     python3 ~/dominate-place/replace.py $x $y
     
     git add .
