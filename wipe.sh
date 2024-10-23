@@ -11,12 +11,13 @@ for y in {0..9}; do
   for x in {0..19..5}; do
     python3 ~/dominate-place/replace.py $x $y
     
-    cd ..
-    cd amPlace_contribution
-    
     git add .
     git commit -m "$msg"
     git push $url main
+    
+    cd ..
+    cd amPlace_contribution
+    
     gh pr create --base main --head main --title "If this works" --body "testing testing"
     
     cd ..
