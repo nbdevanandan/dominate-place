@@ -1,4 +1,4 @@
-# Our idea to get that razer mouse
+# Our idea
 
 ## What we did to do what we did:
 We replaced every pixel of the canvas to match a canvas which we imagined.
